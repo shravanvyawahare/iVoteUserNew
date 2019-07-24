@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 22, 2019 11:27:52 PM by Hibernate Tools 3.5.0.Final -->
+
+<hibernate-mapping>
+<class name="com.model.AdharCard" table="adharcarddata">
+	
+	<id name="id" type="int">		
+		<generator class="assigned"/>
+		</id>
+		<property name="adharCardNumber" type="java.lang.String">
+		    <column name="aadhar_card_no" />
+		</property>
+		<property name="name" type="java.lang.String">
+		    <column name="name" />
+		</property>
+		<property name="dateOfBirth" type="java.lang.String">
+		    <column name="dob" />
+		</property>
+		
+		<property name="state" type="java.lang.String">
+		    <column name="state" />
+		</property>
+		<property name="district" type="java.lang.String">
+		    <column name="district" />
+		</property>
+		<property name="taluka" type="java.lang.String">
+		    <column name="taluka" />
+		</property>
+		<property name="village" type="java.lang.String">
+		    <column name="village" />
+		</property>		
+		<property name="pincode" type="java.lang.String">
+		    <column name="pincode" />
+		</property>
+			<property name="phoneNumber" type="long">
+		    <column name="phone_no" />
+		</property>
+</class>
+</hibernate-mapping>

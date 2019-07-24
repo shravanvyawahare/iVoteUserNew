@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 22, 2019 11:27:52 PM by Hibernate Tools 3.5.0.Final -->
+
+<hibernate-mapping>
+<class name="com.model.Candidate" table="managecandidate">
+	<id name="CandidateId" type="int">
+		<generator class="assigned"/>
+		</id>
+		<property name="candidateName" type="java.lang.String">
+		    <column name="candidateName" />
+		</property>
+		<property name="city" type="java.lang.String">
+		    <column name="city" />
+		</property>
+		<property name="pincode" type="java.lang.String">
+		    <column name="pincode" />
+		</property>
+		
+</class>
+</hibernate-mapping>
