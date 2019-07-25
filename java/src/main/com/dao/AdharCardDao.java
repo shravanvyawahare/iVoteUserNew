@@ -14,10 +14,8 @@ public interface AdharCardDao {
 	public List<String> candidateDetails(String adharCardNumber); 
 	public String showAllCityCandidate(String adharCardNumber) ;
 	public List<String> getBirthDate(String adharCardNumber);
-//	public int calculateAgeWithJodaTime(
-//			  org.joda.time.LocalDate birthDate,
-//			  org.joda.time.LocalDate currentDate);
-	
+
+	public List<Integer> getCandiadateIdByName(String adharCardNumber);
 	public int calculateAgeWithJava7(Date birthDate,Date currentDate);
 
 }

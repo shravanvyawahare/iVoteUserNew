@@ -178,24 +178,41 @@ public AdharCard getCity(String adharCardNumber) {
 		return list;
 	
 	}
-
-//
-//	public int calculateAgeWithJodaTime(
-//			  org.joda.time.LocalDate birthDate,
-//			  org.joda.time.LocalDate currentDate) {
-//			    // validate inputs ...
-//			    Years age = Years.yearsBetween(birthDate, currentDate);
-//			    return age.getYears();   
-//			}
-
 	public int calculateAgeWithJava7(
 			  Date birthDate, 
 			  Date currentDate) {            
-			    // validate inputs ...                                                                               
+			                                                                           
 			    DateFormat formatter = new SimpleDateFormat("yyyyMMdd");                           
 			    int d1 = Integer.parseInt(formatter.format(birthDate));                            
 			    int d2 = Integer.parseInt(formatter.format(currentDate));                          
 			    int age = (d2 - d1) / 10000;                                                       
 			    return age;                                                                        
 			}
+
+
+
+	public List<Integer> getCandiadateIdByName(String adharCardNumber) {
+		
+		Session session = null;
+		Transaction tx = null;
+		List<Integer> list=null;
+		try {
+			session = HibenateUtil.getSession();
+			tx = session.beginTransaction();
+			List<String> nameList=candidateDetails(adharCardNumber);
+			for (String string : nameList) {
+				Query q1 = session.createQuery("select candidateId from Candidate where candidateName =:string");
+				  q1.setParameter("string",string);
+				  list = q1.getResultList();
+			}			  
+			tx.commit();
+		} catch (HibernateException h) {
+			System.out.println(h);
+		} finally {
+			session.close();
+		
+		}
+		return list;
+	
+	}
 }

@@ -6,7 +6,7 @@
 
 <hibernate-mapping>
 <class name="com.model.Candidate" table="managecandidate">
-	<id name="CandidateId" type="int">
+	<id name="candidateId" type="int">
 		<generator class="assigned"/>
 		</id>
 		<property name="candidateName" type="java.lang.String">
@@ -15,8 +15,11 @@
 		<property name="city" type="java.lang.String">
 		    <column name="city" />
 		</property>
-		<property name="pincode" type="java.lang.String">
+		<property name="pincode" type="int">
 		    <column name="pincode" />
+		</property>
+		<property name="numbercount" type="int">
+		    <column name="numbercount" />
 		</property>
 		
 </class>

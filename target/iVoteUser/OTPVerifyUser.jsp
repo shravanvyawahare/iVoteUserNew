@@ -18,7 +18,15 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link href="Login.css" rel="stylesheet" type="text/css"/>
 </head>
-
+<%
+   session= request.getSession(false);
+if(session.getAttribute("adharcard")==null)
+{
+	response.sendRedirect("Logout");	
+}
+else
+{
+%>  
 <body>
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
@@ -53,14 +61,11 @@
 				
 					</form>
 				</div>
-				<%-- <%
-					if(null!=request.getAttribute("phone_no"))
-						{
-							out.println( request.getAttribute("phone_no")); 
-						}
-				 %> --%>
+				
 			</div>
 		</div>
 	</div>
 </body>
 </html>
+
+ <%} %>

@@ -32,28 +32,24 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<%-- <%
+ <%
    session= request.getSession(false);
-if(session.getAttribute("adharcard")!=null)
+if(session.getAttribute("adharcard")==null)
 {
 	response.sendRedirect("Logout");	
 }
 else
 {
-%> --%>
+%> 
 <br><br>
 <div class="container">
-
-
   <form class="form" method="get">
                 <div class="form-group " id="demo">
                     <label class="col-3"><b>Candidate Name</b></label>
-                </div>
-                
+                </div>               
                    
         </form>
-        </div>
-       
+        </div>       
 </body>
 </html>
-<%-- <%} %> --%>
+ <%} %> 

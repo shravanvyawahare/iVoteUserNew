@@ -16,25 +16,26 @@
 </head>
 <body>
 
-<%-- <%
-
+ <%
 		Session s =null;
 		Transaction tx=null; 		
 		 try{
 		AdharCardDao ad=new AdharCardImpl();
 		List<String> details = ad.candidateDetails("551634244425");
-		//System.out.println(details);
-		//out.print(details);
-		%> --%>
-		<center>
+	
+		%> 
+<!-- 		<center> -->
 		<div class="col-6">
 		
 		<table class='table table-stripped table-primary' ><tr><th>Candidate Name</th><th>Vote</th></tr>
-	<%-- 	<%
+ 	<%
 		for (String string : details) {%>
 			<tr><td><%=string %></td>
-			<td><input type='submit' name='vote' value='submit vote'></td></tr>
-	<% --%>
+			<td>
+			<form action="UpdateCount">
+			<input type='submit' name='vote' id="<% %>" value='submit vote'>
+			</form></td></tr>
+	<%
 		}
 		
 		out.write("</table>");
@@ -45,10 +46,10 @@
 			 e.printStackTrace();
 		 }
 
-<!-- %> -->
+ %>
 
 </table>
 </div>
-</center>
+<!-- </center> -->
 </body>
 </html>

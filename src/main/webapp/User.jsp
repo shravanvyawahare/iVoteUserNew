@@ -15,15 +15,7 @@
 	<link href="Login.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
- <%
-   session= request.getSession(false);
-if(session.getAttribute("adharcard")!=null)
-{
-	response.sendRedirect("Logout");	
-}
-else
-{
-%>  
+ 
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -38,21 +30,26 @@ else
                <form action="UserSession" method="get">
 						<div class="input-group mb-3">
 							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
 							<input type="text" name="AadharCardNo" class="form-control input_user"  placeholder="Enter Aadhar Card No">
 						</div>
 						<span class="text-danger">
 						
+						
 					 <%
-								if(null!=request.getAttribute("errorMessage"))
-									 {
-									 out.println( request.getAttribute("errorMessage")); 
-									 }
-					 if(null!=request.getAttribute("errorMessages"))
+					 
+					 
+					 /* String str =(String) request.getAttribute("errorMessages");
+						System.out.println("str = "+str); */
+							 if(null!=request.getAttribute("errorMessages"))
+								 {
+								 out.println( request.getAttribute("errorMessages")); 
+								 } 
+					/*  if(null!=request.getAttribute("errorMessages"))
 					 {
 					 out.println( request.getAttribute("errorMessages")); 
-					 } 
+					 }  */
 						 %>	 </span>	
                  <div class="d-flex justify-content-center mt-3 login_container">
                  <input type="submit" name="Next" class="btn login_btn" value="Next"> 
@@ -68,4 +65,4 @@ else
 	</div>
 </body>
 </html>
- <%} %>
+

@@ -45,10 +45,13 @@ public class EnterVote extends HttpServlet {
 		}  
 		    int age= ad.calculateAgeWithJava7(date1, dt);
 		    System.out.println(dateOfBirth+"\t"+date1+"\t"+age); 
+		    
 		    if(age>=18)
 		    {
 		    	System.out.println("in if loop");
-		    	response.sendRedirect("showPhone");		
+		    	RequestDispatcher rd = request.getRequestDispatcher("showPhone");
+	            rd.forward(request, response);   
+	          		
 		    	
 		    }
 		    else {
