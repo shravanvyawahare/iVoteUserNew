@@ -43,7 +43,7 @@ public class EnterVote extends HttpServlet {
 		} catch (ParseException e) {			
 			e.printStackTrace();
 		}  
-		    int age= ad.calculateAgeWithJava7(date1, dt);
+		    int age= ad.calculateAge(date1, dt);
 		    System.out.println(dateOfBirth+"\t"+date1+"\t"+age); 
 		    
 		    if(age>=18)

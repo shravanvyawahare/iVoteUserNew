@@ -63,7 +63,7 @@ public class UserSession extends HttpServlet {
 						} catch (ParseException e) {			
 							e.printStackTrace();
 						}  
-						    int age= adao.calculateAgeWithJava7(date1, dt);
+						    int age= adao.calculateAge(date1, dt);
 						    System.out.println(dateOfBirth+"\t"+date1+"\t"+age); 
 							   
 						    if(age>=18)

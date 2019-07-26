@@ -28,6 +28,7 @@ import com.model.AdharCard;
 import com.model.Candidate;
 import com.util.HibenateUtil;
 public class AdharCardImpl implements AdharCardDao{
+	
 	public List<AdharCard> showAll()
 	{
 		Session session =null;
@@ -113,9 +114,10 @@ public AdharCard getCity(String adharCardNumber) {
 		return e;
 	}
 
+	
+	
 
-
-	public List<String> candidateDetails(String adharCardNumber) 
+	/*public List<String> candidateDetails(String adharCardNumber) 
 	{
 		Session session =null;// sessionFactory.openSession();
 		Transaction tx=null;
@@ -137,7 +139,7 @@ public AdharCard getCity(String adharCardNumber) {
 				session.close();		
 		}
 		return list ;
-	}
+	}*/
 
 	public String showAllCityCandidate(String adharCardNumber) {
 	
@@ -178,7 +180,7 @@ public AdharCard getCity(String adharCardNumber) {
 		return list;
 	
 	}
-	public int calculateAgeWithJava7(
+	public int calculateAge(
 			  Date birthDate, 
 			  Date currentDate) {            
 			                                                                           
@@ -191,7 +193,57 @@ public AdharCard getCity(String adharCardNumber) {
 
 
 
-	public List<Integer> getCandiadateIdByName(String adharCardNumber) {
+	public List<Candidate> fetchAll(String adharCardNumber) {
+
+		Session session =null;// sessionFactory.openSession();
+		Transaction tx=null;
+		 List<Candidate> list=null;
+		try{
+			session=HibenateUtil.getSession();
+			tx = session.beginTransaction();
+	         Scanner sc= new Scanner(System.in);
+	      Query q1 = session.createQuery("select c from Candidate c where city=(select district from AdharCard where adharCardNumber =:adharCardNumber )");
+	      q1.setParameter("adharCardNumber",adharCardNumber);
+	      list = q1.list();	  
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		finally{			
+				session.close();		
+		}
+		return list;
+		
+	}
+
+
+
+	public void updateCount(int id) {
+		
+		Session session =null;
+		Transaction tx=null;
+		List<AdharCard> eList=null;
+		try{
+			session=HibenateUtil.getSession();
+			tx = session.beginTransaction();
+
+			Candidate candidate= session.load(Candidate.class,id);
+		int count=candidate.getNumbercount();
+			candidate.setNumbercount(count+1);
+			session.update(candidate);
+			tx.commit();
+			}
+		catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+		}
+		
+	}
+
+
+
+/*	public List<Integer> getCandiadateIdByName(String adharCardNumber) {
 		
 		Session session = null;
 		Transaction tx = null;
@@ -215,4 +267,34 @@ public AdharCard getCity(String adharCardNumber) {
 		return list;
 	
 	}
+
+
+
+	public List<Integer> candidateDetailsId(String adharCardNumber) {
+		Session session =null;// sessionFactory.openSession();
+		Transaction tx=null;
+		 List<Integer> list=null;
+		try{
+			session=HibenateUtil.getSession();
+			tx = session.beginTransaction();
+	         Scanner sc= new Scanner(System.in);
+	      Query q1 = session.createQuery("select candidateId from Candidate where city=(select district from AdharCard where adharCardNumber=:adharCardNumber)");
+	      q1.setParameter("adharCardNumber",adharCardNumber);
+	     list = q1.getResultList();
+	   
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		finally{			
+				session.close();		
+		}
+		return list ;
+		
+	}*/
+
+
+
+	
 }

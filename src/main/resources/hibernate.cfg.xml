@@ -4,7 +4,7 @@
 		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-           <!--  <property name="hbm2ddl.auto">create</property>  -->
+        
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.password">welcome</property>
         <property name="hibernate.connection.url">jdbc:mysql://192.168.100.26:3307/group005_erp</property>
@@ -13,7 +13,7 @@
         <property name="show_sql">true</property>
       <mapping resource="AdharCard.hbm.xml"/> 
       <mapping resource="Candidate.hbm.xml"/> 
-      
+      <mapping resource="VotersAdharAfterVoting.hbm.xml"/> 
               
     </session-factory>
 </hibernate-configuration>

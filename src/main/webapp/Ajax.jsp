@@ -30,8 +30,19 @@ $(document).ready(function(){
 	
 	});
 </script>
+
+<style>
+body{
+	background-image: url("images/bgtable.jpg");
+	background-attachment: fixed;
+	 background-size: cover;
+	background-repeat: no-repeat;
+	}
+</style>
 </head>
 <body>
+
+
  <%
    session= request.getSession(false);
 if(session.getAttribute("adharcard")==null)
@@ -42,14 +53,15 @@ else
 {
 %> 
 <br><br>
-<div class="container">
+<center>
+<div class="container" id="Candidate_table">
   <form class="form" method="get">
                 <div class="form-group " id="demo">
                     <label class="col-3"><b>Candidate Name</b></label>
-                </div>               
-                   
+                </div>                        
         </form>
-        </div>       
+        </div>  
+        </center>     
 </body>
 </html>
  <%} %> 

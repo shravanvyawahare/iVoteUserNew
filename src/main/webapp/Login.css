@@ -6,7 +6,8 @@
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: #60a3bc !important;
+			background-image: url("images/user.jpeg") ;
+			/* background: #60a3bc !important; */
 		}
 		.user_card {
 			height: 400px;

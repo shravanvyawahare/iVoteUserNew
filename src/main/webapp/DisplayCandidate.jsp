@@ -1,3 +1,4 @@
+<%@page import="com.model.Candidate"%>
 <%@page import="java.util.List"%>
 <%@page import="com.dao.AdharCardImpl"%>
 <%@page import="com.dao.AdharCardDao"%>
@@ -16,25 +17,30 @@
 </head>
 <body>
 
- <%
+<%
+	String session_adharcard=(String)session.getAttribute("adharcard");
 		Session s =null;
 		Transaction tx=null; 		
 		 try{
 		AdharCardDao ad=new AdharCardImpl();
-		List<String> details = ad.candidateDetails("551634244425");
-	
-		%> 
+		List<Candidate> clist=ad.fetchAll(session_adharcard);
+%> 
 <!-- 		<center> -->
 		<div class="col-6">
 		
-		<table class='table table-stripped table-primary' ><tr><th>Candidate Name</th><th>Vote</th></tr>
+		<table class='table  table-white' style="color: white;" ><tr>
+		<th>Candidate id</th>
+		<th>Candidate Name</th>
+		<th>Vote</th></tr>		
  	<%
-		for (String string : details) {%>
-			<tr><td><%=string %></td>
+ 	 for (Candidate c : clist) {%>
+			<tr><td><%=c.candidateId %></td>
+			<td><%=c.getCandidateName() %></td>
 			<td>
-			<form action="UpdateCount">
-			<input type='submit' name='vote' id="<% %>" value='submit vote'>
-			</form></td></tr>
+			<a href="DisableUserAfterVote?id=<%=c.candidateId %>" 
+			class="btn btn-" >Vote Now</a>
+			
+			</td></tr>
 	<%
 		}
 		

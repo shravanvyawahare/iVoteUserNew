@@ -16,6 +16,7 @@
 </head>
 <body>
  
+ 
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
@@ -62,6 +63,7 @@
 					
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

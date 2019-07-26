@@ -4,12 +4,7 @@
 <web-app>
  
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>DisplayCandidate</servlet-name>
-  	<display-name>DisplayCandidate</display-name>
-  	<description></description>
-  	<servlet-class>com.controller.DisplayCandidate</servlet-class>
-  </servlet>
+ 
   <servlet>
   	<servlet-name>EnterVote</servlet-name>
   	<display-name>EnterVote</display-name>
@@ -46,10 +41,19 @@
   	<description></description>
   	<servlet-class>com.controller.UpdateCount</servlet-class>
   </servlet>
-  <servlet-mapping>
-  	<servlet-name>DisplayCandidate</servlet-name>
-  	<url-pattern>/DisplayCandidate</url-pattern>
-  </servlet-mapping>
+  <servlet>
+  	<servlet-name>SubmitVote</servlet-name>
+  	<display-name>SubmitVote</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.SubmitVote</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DisableUserAfterVote</servlet-name>
+  	<display-name>DisableUserAfterVote</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.DisableUserAfterVote</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>EnterVote</servlet-name>
   	<url-pattern>/EnterVote</url-pattern>
@@ -74,8 +78,16 @@
   	<servlet-name>UpdateCount</servlet-name>
   	<url-pattern>/UpdateCount</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SubmitVote</servlet-name>
+  	<url-pattern>/SubmitVote</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DisableUserAfterVote</servlet-name>
+  	<url-pattern>/DisableUserAfterVote</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>  
-   <welcome-file>User.jsp</welcome-file>  
+   <welcome-file>Home.jsp</welcome-file>  
      
   </welcome-file-list>  
     </web-app>
